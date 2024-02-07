@@ -8,8 +8,8 @@ const page = () => {
     <div className={styles.container}>
         <h1 className={styles.title}>Education</h1>
         <div className={styles.content}>
-            <Menu />
-            <CardList />
+          <Menu />
+          <CardList />
         </div>
     </div>
   )

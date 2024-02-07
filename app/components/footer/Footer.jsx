@@ -24,7 +24,7 @@ function Footer() {
         <div className={styles.list}>
           <span className={styles.listLinks}>Links</span>
           <Link href='/' >Home</Link>
-          <Link href='/' >Blog</Link>
+          <Link href='/blog' >Blog</Link>
           <Link href='/' >Contact</Link>
           <Link href='/' >About</Link>
         </div>

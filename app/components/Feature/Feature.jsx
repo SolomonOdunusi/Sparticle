@@ -10,7 +10,7 @@ function Feature() {
       </h1>
       <div className={styles.post}>
         <div className={styles.imgContainer}>
-          <Image src="/Children_tech.jpeg" alt='Children holding tablets' className={styles.image} fill />
+          <Image src="/Children_tech.jpeg" fill className={styles.image} />
         </div>
         <div className={styles.textContainer}>
           <h1 className={styles.postTitle}>IOT for children: How technology impacts children</h1>
