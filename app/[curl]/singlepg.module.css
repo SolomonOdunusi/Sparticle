@@ -70,3 +70,17 @@
     margin-bottom: 20px;
 
 }
+
+
+@media screen and (max-width: 768px){
+    .infoContainer {
+       display: block;
+    }
+
+    .imgContainer {
+        margin: 20px 0;
+    }
+    .title {
+        font-size: 36px;
+    }
+}

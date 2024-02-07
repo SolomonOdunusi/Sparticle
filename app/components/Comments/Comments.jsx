@@ -2,12 +2,13 @@ import React from 'react'
 import styles from './comments.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
+import Menu from '../Menu/Menu'
 
 const Comments = () => {
 
     const comments = "authenticated"
   return (
-    <div className={styles.conatainer}>
+    <div className={styles.container}>
         <h1 className={styles.title}>Comments</h1>
         {comments === "authenticated" ? (
             <div className={styles.formContainer}>
@@ -17,6 +18,7 @@ const Comments = () => {
         ) : ( 
             <Link className={styles.text}>Please log in to leave a comment.</Link>
         )}
+        <div className={styles.comm}>
         <div className={styles.comments}>
             <div className={styles.comment}>
                 <div className={styles.user}>
@@ -68,6 +70,8 @@ const Comments = () => {
                 </div>
                 <p className={styles.body}>Great tips! Mastering composition and experimenting with lighting have made a huge difference in my photography. Thanks for sharing these valuable insights!</p>
             </div>
+        </div>
+        <Menu className={styles.menu} />
         </div>
     </div>
   )
