@@ -72,6 +72,12 @@
 }
 
 
+@media screen and (max-width: 1024px) {
+    .title {
+        font-size: 48px;
+    }
+}
+
 @media screen and (max-width: 768px){
     .infoContainer {
        display: block;
@@ -82,5 +88,14 @@
     }
     .title {
         font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .title {
+        font-size: 36px;
+    }
+    .body p {
+        font-size: 18px;
     }
 }
