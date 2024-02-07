@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './singlepg.module.css'
 import Image from 'next/image'
 import Menu from '../components/Menu/Menu'
+import Comments from '../components/Comments/Comments'
 
 const SinglePage = () => {
   return (
@@ -45,6 +46,7 @@ const SinglePage = () => {
                     <p>Photography is a lifelong journey of learning and discovery. Stay curious, keep experimenting, and never stop learning. Embrace new techniques, explore different genres, and challenge yourself to push the boundaries of your creativity.</p>
                     <p>By following these tips and staying committed to your craft, you can advance in the world of photography and take your skills to new heights. Remember that photography is a deeply personal and expressive art form, so don't be afraid to let your unique vision shine through in your work.</p>
                 </div>
+                <Comments />
             </div>
             <Menu />
         </div>

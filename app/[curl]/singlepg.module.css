@@ -60,10 +60,13 @@
     margin-top: 50px;
     font-size: 20px;
     line-height: 1.5;
+}
+
+.body h3 {
     color: var(--softTextColor);
 }
 
-.desc p {
+.body p {
     margin-bottom: 20px;
-    color: var(--softTextColor);
+
 }
