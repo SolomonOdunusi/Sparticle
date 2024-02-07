@@ -9,18 +9,18 @@ import Auth from '../Auth/Auth'
 function NavBar() {
   return (
     <div className={styles.container}>
-      <div className={styles.media}>
-        <Image src="/instagram.svg" alt="Instagram" width={30} height={30} />
-        <Image src="/square-x-twitter.svg" alt="Twitter" width={30} height={30} />
-        <Image src="/linkedin.svg" alt="Twitter" width={30} height={30} />
-      </div>
-      <div className={styles.Logo}>Sparticle</div>
+      <div className={styles.logo}>Sparticle</div>
       <div className={styles.links}>
         <Theme />
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/contact">Contact</Link>
+        <Link className={styles.link} href="/">Home</Link>
+        <Link className={styles.link} href="/about">About</Link>
+        <Link className={styles.link} href="/contact">Contact</Link>
         <Auth />
+      </div>
+      <div className={styles.media}>
+        <Image src="/instagram.svg" alt="Instagram" width={20} height={20} className={styles.insta}/>
+        <Image src="/square-x-twitter.svg" alt="Twitter" width={20} height={20} />
+        <Image src="/linkedin.svg" alt="Twitter" width={20} height={20} />
       </div>
     </div>
   )

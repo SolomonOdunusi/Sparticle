@@ -9,7 +9,6 @@ import styles from './page.module.css'
 export default function page() {
   return (
     <div>
-      <h1>Landing Page</h1>
       <Feature />
       <CategoryList />
       <div className={styles.content}>
