@@ -45,7 +45,15 @@ a {
 
 }
 
-.quill-conatiner
+.ql-container {
+  font-size: 28px !important;
+}
+
+.quill > .ql-container > .ql-editor.ql-blank::before {
+  content: attr(data-placeholder);
+  color: #8c8c8c;
+  pointer-events: none;
+}
 
 
 @media screen and (max-width: 1536px){

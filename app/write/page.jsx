@@ -11,26 +11,27 @@ const WritePage = () => {
     const [value, setValue] = useState("");
   return (
     <div className={styles.container}>
-        <input type="text" placeholder='Title'/>
+        <input className={styles.title} type="text" placeholder='Title'/>
         <div className={styles.editor}>
-            <button className={styles.btn}>
+            <button className={styles.btn} onClick={() => setOpen(!open)}>
                 <Image className={styles.img} src='/plus.svg' height={16} width={16} />
             </button>
             {open && (
-                <div>
-                    <button className={styles.btn}>
+                <div className={styles.add}>
+                    <button className={styles.addbtn}>
                         <Image src='/image.svg' height={16} width={16} />
                     </button>
-                    <button className={styles.btn}>
+                    <button className={styles.addbtn}>
                         <Image src='/video.svg' height={16} width={16} />
                     </button>
-                    <button className={styles.btn}>
+                    <button className={styles.addbtn}>
                         <Image src='/upload.svg' height={16} width={16} />
                     </button>
                 </div>
             )}
-            <ReactQuill theme='bubble' value={value} onChange={setValue} placeholder='Start writing Scholar' />
+            <ReactQuill className={styles.input} theme='bubble' value={value} onChange={setValue} placeholder='Unleash your knowledge...' />
         </div>
+        <button className={styles.post}>Post</button>
     </div>
   )
 }
