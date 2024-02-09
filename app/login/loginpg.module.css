@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(./shelf1.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+
+.wrapper {
+    background: transparent;
+    border: 2px solid rgb(255, 255, 255, .2);
+    padding: 80px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .2);
+}
+
+.signbtn {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.signbtn:first-child {
+    background-color: #ffa500;
+}
+
+
+.signbtn:nth-child(2) {
+    background-color: #4267b2;
+}
+
+.signbtn:last-child {
+    background-color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        padding: 40px 80px;
+        gap: 30px;
+    }
+}
+@media screen and (max-width: 640px) {
+    .wrapper {
+        padding: 20px 30px;
+        gap: 20px;
+        font-size: 14px;
+        font-weight: 300;
+    }
+    .img {
+        height: 15px;
+        width: 15px;
+    }
+}
