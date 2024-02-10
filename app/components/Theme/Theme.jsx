@@ -8,7 +8,7 @@ import Image from 'next/image'
 function Theme() {
 
   const {toggle, theme} = useContext(ThemeContext)
-  console.log(theme)
+
   return (
     <div className={styles.container} onClick={toggle} style={theme === "dark" ? {backgroundColor: "white"} : {backgroundColor: "black"}}>
       <Image src="/moon-solid.svg" width={14} height={14} />
