@@ -13,23 +13,23 @@ function CategoryList() {
             Education
           </Link>
           <Link href={`/blog`} className={`${styles.category} ${styles.tech}`}>
-            <Image src="/tech-tag.svg" className={styles.icon} height={32} width={32}/>
+            <Image src="/tech-tag.svg" alt='img' className={styles.icon} height={32} width={32}/>
             Tech
           </Link>
           <Link href={`/blog`} className={`${styles.category} ${styles.medicine}`}>
-            <Image src="/hospital-solid.svg" className={styles.icon} height={32} width={32}/>
+            <Image src="/hospital-solid.svg" alt='img' className={styles.icon} height={32} width={32}/>
             Medicine
           </Link>
           <Link href={`/blog`} className={`${styles.category} ${styles.engineering}`}>
-            <Image src="/engineer-tag.svg" className={styles.icon} height={32} width={32}/>
+            <Image src="/engineer-tag.svg" alt='img' className={styles.icon} height={32} width={32}/>
             Engineering
           </Link>
           <Link href={`/blog`} className={`${styles.category} ${styles.Literature}`}>
-            <Image src="/literature-tag.svg" className={styles.icon} height={32} width={32}/>
+            <Image src="/literature-tag.svg" alt='img' className={styles.icon} height={32} width={32}/>
             Literature
           </Link>
           <Link href={`/blog`} className={`${styles.category} ${styles.Literature}`}>
-            <Image src="/science-tag.svg" className={styles.icon} height={32} width={32}/>
+            <Image src="/science-tag.svg" alt='img' className={styles.icon} height={32} width={32}/>
             Science
           </Link>
       </div>
