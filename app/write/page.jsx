@@ -1,12 +1,16 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './writepg.module.css'
 import Image from 'next/image'
 import ReactQuill from 'react-quill'
 import "react-quill/dist/quill.bubble.css"
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { app } from '@/utils/firebase'
+
+const storage = getStorage(app);
 
 const WritePage = () => {
 
@@ -15,7 +19,49 @@ const WritePage = () => {
     const router = useRouter();
     
     const [open, setOpen] = useState(false);
+    const [file, setFile] = useState(null);
+    const [media, setMedia] = useState("");
     const [value, setValue] = useState("");
+    const [title, setTitle] = useState("");
+
+    useEffect(() => {
+        const uploadFile = async () => {
+            const name = new Date().getTime() + file.name;
+            const storageRef = ref(storage, name);
+
+const uploadTask = uploadBytesResumable(storageRef, file);
+
+// Register three observers:
+// 1. 'state_changed' observer, called any time the state changes
+// 2. Error observer, called on failure
+// 3. Completion observer, called on successful completion
+uploadTask.on('state_changed', 
+  (snapshot) => {
+    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    console.log('Upload is ' + progress + '% done');
+    switch (snapshot.state) {
+      case 'paused':
+        console.log('Upload is paused');
+        break;
+      case 'running':
+        console.log('Upload is running');
+        break;
+    }
+  }, 
+  (error) => {
+    // Handle unsuccessful uploads
+  }, 
+  () => {
+    // Handle successful uploads on complete
+    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        setMedia(downloadURL);
+    });
+  }
+);
+
+        }
+        file && uploadFile()
+    }, [file])
 
     if (status === 'loading') {
         return <div className={styles.loader}>
@@ -26,21 +72,60 @@ const WritePage = () => {
             </div>
         </div>
     }
-    if (status === 'authenticated') {
-        router.push("/write")
+    if (status === 'unauthenticated') {
+        router.push("/")
+    }
+
+    const curler = (str) =>
+    str
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/[\s_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    const handleSubmit = async () => {
+        const res = await fetch('/api/posts', {
+            method: 'POST',
+            body: JSON.stringify({title,
+                desc: value,
+                img: media,
+                curl: curler(title),
+                catCurl: "education"
+
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        if(res.ok) {
+            router.push('/')
+        }
     }
 
   return (
     <div className={styles.container}>
-        <input className={styles.title} type="text" placeholder='Title'/>
+        <input className={styles.title} type="text" placeholder='Title' onChange={(e) => setTitle(e.target.value)} />
+        <select className={styles.select} onChange={(e) => setCatCurl(e.target.value)}>
+        <option value="style">education</option>
+        <option value="fashion">tech</option>
+        <option value="food">medicine</option>
+        <option value="culture">engineering</option>
+        <option value="travel">philosophy</option>
+        <option value="coding">literature</option>
+        <option value="coding">science</option>
+      </select>
         <div className={styles.editor}>
             <button className={styles.btn} onClick={() => setOpen(!open)}>
                 <Image className={styles.img} src='/plus.svg' height={16} width={16} />
             </button>
             {open && (
                 <div className={styles.add}>
+                    <input type="file" id='image' onChange={e=> setFile(e.target.files[0])} style={{display: 'none'}} />
                     <button className={styles.addbtn}>
-                        <Image src='/image.svg' height={16} width={16} />
+                        <label htmlFor="image">
+                            <Image src='/image.svg' height={16} width={16} />
+                        </label>
                     </button>
                     <button className={styles.addbtn}>
                         <Image src='/video.svg' height={16} width={16} />
@@ -52,7 +137,7 @@ const WritePage = () => {
             )}
             <ReactQuill className={styles.input} theme='bubble' value={value} onChange={setValue} placeholder='Unleash your knowledge...' />
         </div>
-        <button className={styles.post}>Post</button>
+        <button className={styles.post} onClick={handleSubmit} >Post</button>
     </div>
   )
 }

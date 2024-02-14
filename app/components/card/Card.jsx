@@ -3,22 +3,22 @@ import styles from './card.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const Card = () => {
+const Card = ({key,item}) => {
   return (
-    <div className={styles.container}>
-        <div className={styles.imgContainer}>
-            <Image src='/drug.jpg' fill className={styles.image} alt='Cure research by students'/>
-        </div>
+    <div className={styles.container} key={key}>
+        {item.img && <div className={styles.imgContainer}>
+            <Image src={item.img} fill className={styles.image} alt='Cure research by students'/>
+        </div>}
         <div className={styles.textContainer}>
             <div className={styles.detail}>
-                <span className={styles.date}>2/5/2024 | </span>
-                <span className={styles.category}>Medicine</span>
+                <span className={styles.date}>{item.createdAt.substring(0, 10)} | </span>
+                <span className={styles.category}>{item.catCurl}</span>
             </div>
-            <Link href="/">
-                <h1>The Medical Students of University of Lagos research on Cancer</h1>
+            <Link href={`/posts/${item.curl}`}>
+                <h1>{item.title}</h1>
             </Link>
-            <p className={styles.body}>The students of the university of lagos have come up with a viable possibilty of solving the issue of cancer that has ravaged the health of many. They are many research cases done to try to solve it.</p>
-            <Link className={styles.button} href="/">Read more...</Link>
+            <p className={styles.body}>{item.desc.substring(0, 50)}</p>
+            <Link className={styles.button} href={`/posts/${item.curl}`}>Read more...</Link>
         </div>
     </div>
   )

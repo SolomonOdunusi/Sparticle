@@ -6,13 +6,15 @@ import CardList from './components/Cards/CardList'
 import Menu from './components/Menu/Menu'
 import styles from './page.module.css'
 
-export default function page() {
+export default function page({ searchParams }) {
+
+  const page = parseInt(searchParams.page) || 1;
   return (
     <div>
       <Feature />
       <CategoryList />
       <div className={styles.content}>
-        <CardList />
+        <CardList page={page} />
         <Menu />
       </div>
     </div>

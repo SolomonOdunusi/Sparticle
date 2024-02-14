@@ -3,16 +3,19 @@ import styles from './blogpg.module.css'
 import CardList from '../components/Cards/CardList'
 import Menu from '../components/Menu/Menu'
 
-const page = () => {
+const BlogPage = ({searchParams}) => {
+
+  const page = parseInt(searchParams.page) || 1;
+  const {cat} = searchParams
   return (
     <div className={styles.container}>
-        <h1 className={styles.title}>Education</h1>
+        <h1 className={styles.title}>{cat}</h1>
         <div className={styles.content}>
+          <CardList page={page} cat={cat} />
           <Menu />
-          <CardList />
         </div>
     </div>
   )
 }
 
-export default page
+export default BlogPage
