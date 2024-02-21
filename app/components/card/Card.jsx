@@ -11,13 +11,13 @@ const Card = ({key,item}) => {
         </div>}
         <div className={styles.textContainer}>
             <div className={styles.detail}>
-                <span className={styles.date}>{item.createdAt.substring(0, 10)} | </span>
+                <span className={styles.date}>{item.createdAt.toISOString().substring(0, 10)} | </span>
                 <span className={styles.category}>{item.catCurl}</span>
             </div>
             <Link href={`/posts/${item.curl}`}>
                 <h1>{item.title}</h1>
             </Link>
-            <p className={styles.body}>{item.desc.substring(0, 50)}</p>
+            <p dangerouslySetInnerHTML={{ __html: item.desc.substring(0, 50) }} className={styles.body}></p>
             <Link className={styles.button} href={`/posts/${item.curl}`}>Read more...</Link>
         </div>
     </div>

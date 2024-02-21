@@ -46,6 +46,7 @@
     border-radius: 10px;
     width: max-content;
     font-weight: bold;
+    cursor: pointer;
 }
 
 

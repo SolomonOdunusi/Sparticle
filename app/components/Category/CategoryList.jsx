@@ -14,14 +14,15 @@ const getData = async () => {
   return res.json()
 }
 
-const CategoryList = async () => {
+const CategoryList = async ({searchParams}) => {
+
   const data = await getData()
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Top Categories</h2>
       <div className={styles.categories}>
           {data?.map((item) =>(
-            <Link href="/blog?cat=tech" className={`${styles.category} ${styles.education}`} key={item._id}>
+            <Link href={`/blog?cat=${item.curl}`} className={`${styles.category} ${styles.education}`} key={item._id}>
             { item.img && (<Image src={item.img} className={styles.icon} height={32} width={32}/>)}
             {item.title}
           </Link>))}

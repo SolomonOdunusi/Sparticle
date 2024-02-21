@@ -38,7 +38,13 @@ const SinglePage = ({ params }) => {
   }, [curl]);
 
   if (loading) {
-    return <div>Loading...</div>; // You can replace this with a loading spinner or any loading indicator.
+    return <div className={styles.loader}>
+            <div className={styles.loading}>
+                <div className={`${styles.inner} ${styles.innerone}`}></div>
+                <div className={`${styles.inner} ${styles.innertwo}`}></div>
+                <div className={`${styles.inner} ${styles.innerthree}`}></div>
+            </div>
+        </div>
   }
 
   return (

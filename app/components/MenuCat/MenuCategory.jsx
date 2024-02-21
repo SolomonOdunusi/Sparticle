@@ -2,30 +2,27 @@ import Link from 'next/link'
 import React from 'react'
 import styles from './menucategory.module.css'
 
-function MenuCategory() {
+const getData = async () => {
+  const res = await fetch('http://localhost:3000/api/categories', {
+    cache: 'no-cache',
+  })
+  if(!res.ok) {
+    throw new Error('Something went wrong')
+  }
+
+  return res.json()
+}
+
+async function MenuCategory() {
+
+  const data = await getData()
   return (
     <div className={styles.categoryList}>
-    <Link href='/blog?cat=style' className={`${styles.categoryItem} ${styles.education}`}>
-      Education
-    </Link>
-    <Link href='/blog?cat=style' className={`${styles.categoryItem} ${styles.tech}`}>
-      Tech
-    </Link>
-    <Link href='/blog?cat=style' className={`${styles.categoryItem} ${styles.medicine}`}>
-      Medicine
-    </Link>
-    <Link href='/blog?cat=style' className={`${styles.categoryItem} ${styles.philosophy}`}>
-      Philosophy
-    </Link>
-    <Link href='/blog?cat=style' className={`${styles.categoryItem} ${styles.literature}`}>
-      Literature
-    </Link>
-    <Link href='/blog?cat=style' className={`${styles.categoryItem} ${styles.engineering}`}>
-      Engineering
-    </Link>
-    <Link href='/blog?cat=style' className={`${styles.categoryItem} ${styles.science}`}>
-      Science
-    </Link>
+    {data?.map((item) =>(
+    <Link href={`/blog?cat=${item.curl}`} className={`${styles.categoryItem} 
+    ${styles[item.curl]}`}>
+      {item.title}
+    </Link>))}
   </div>
   )
 }

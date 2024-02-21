@@ -22,12 +22,25 @@ async function CardList({ page, cat }) {
   const prev = POST_PER_PAGE * (page - 1) > 0;
   const next = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
 
+  const datapost = await prisma.post.findMany({
+    skip: POST_PER_PAGE * (page - 1),
+    take: POST_PER_PAGE,
+    orderBy: {
+      createdAt: 'desc',
+    },
+    where: {
+      catCurl: cat,
+    },
+  });
+
+  
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>
         <h1>Latest Posts</h1></div>
       <div className={styles.posts}>
-        {posts?.map((item) => (
+        {datapost?.map((item) => (
           <Card item={item} key={item._id} />
         ))}
 

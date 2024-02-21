@@ -1,0 +1,55 @@
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .contact__section {
+    /* Add any specific styling for the contact section */
+  }
+  
+  .contact__container {
+    max-width: 600px;
+  }
+  
+  .section__header {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .contact__form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form__label {
+    margin-bottom: 8px;
+  }
+  
+  .form__input,
+  .form__textarea {
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+  
+  .form__button {
+    width: max-content;
+    border: none;
+    padding: 10px;
+    background-color: var(--bg);
+    color: var(--textColor);
+    border-radius: 10px;
+    cursor: pointer;
+    border: 3px solid var(--textColor);
+    font-weight: 600;
+  }
+  
+  .form__button:hover {
+    background-color: var(--textColor);
+    color: var(--bg);
+  }
+  

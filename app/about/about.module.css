@@ -1,0 +1,58 @@
+/* Assuming you are using CSS modules, as per the "styles" object in your JSX */
+
+/* Global styles (assuming a reset or some base styles) */
+  
+  /* Container styles */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Section styles */
+  .about__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* About Content styles */
+  .about__content {
+    flex: 1;
+    max-width: 600px;
+  }
+  
+  .section__header {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .section__subheader {
+    font-size: 1.2em;
+    line-height: 1.5;
+  }
+  
+  /* About Image styles */
+  .about__image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  
+  /* Responsive styles (adjust as needed) */
+  @media screen and (max-width: 768px) {
+    .about__container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .about__content {
+      max-width: none;
+    }
+  
+    .about__image img {
+      margin-top: 20px; /* Add some space between text and image on smaller screens */
+    }
+  }
+  

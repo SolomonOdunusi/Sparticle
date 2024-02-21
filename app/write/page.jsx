@@ -23,6 +23,7 @@ const WritePage = () => {
     const [media, setMedia] = useState("");
     const [value, setValue] = useState("");
     const [title, setTitle] = useState("");
+    const [catCurl, setCatCurl] = useState("education");
 
     useEffect(() => {
         const uploadFile = async () => {
@@ -91,7 +92,7 @@ uploadTask.on('state_changed',
                 desc: value,
                 img: media,
                 curl: curler(title),
-                catCurl: "education"
+                catCurl: curler(catCurl),
 
             }),
             headers: {
@@ -107,13 +108,13 @@ uploadTask.on('state_changed',
     <div className={styles.container}>
         <input className={styles.title} type="text" placeholder='Title' onChange={(e) => setTitle(e.target.value)} />
         <select className={styles.select} onChange={(e) => setCatCurl(e.target.value)}>
-        <option value="style">education</option>
-        <option value="fashion">tech</option>
-        <option value="food">medicine</option>
-        <option value="culture">engineering</option>
-        <option value="travel">philosophy</option>
-        <option value="coding">literature</option>
-        <option value="coding">science</option>
+        <option value="education">education</option>
+        <option value="tech">tech</option>
+        <option value="medicine">medicine</option>
+        <option value="engineering">engineering</option>
+        <option value="philosophy">philosophy</option>
+        <option value="literature">literature</option>
+        <option value="science">science</option>
       </select>
         <div className={styles.editor}>
             <button className={styles.btn} onClick={() => setOpen(!open)}>
