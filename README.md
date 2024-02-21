@@ -4,6 +4,8 @@
 
 Welcome to Sparticle, a dynamic educational blog app designed to connect students, teachers, and knowledge enthusiasts in a collaborative space for intellectual exploration.
 
+![Featured Page](/public/Featured-screen.png)
+
 ## Project Overview
 
 Embarking on the ALX software engineering program's final project, Sparticle was born out of a desire to create a meaningful platform where learning and knowledge-sharing thrive. Over five weeks of dedicated development, Solomon Odunusi, in collaboration with Paulina Udeh, crafted this app as a culmination of passion, discipline, and technological innovation.
@@ -20,11 +22,15 @@ Paulina's Linkedin: (https://www.linkedin.com/in/paulina-a-c-udeh-451933250?utm_
 
 - **Blog Post Creation:** Users can craft and publish blog posts, categorizing them based on diverse topics for easy navigation.
 
+![Post Page](/public/post-screen.png)
+
 - **Category-Based Post Exploration:** Users can explore posts within different categories, enhancing the discoverability of content aligned with their interests.
 
 - **Login to Write Capability:** To contribute content, users must log in, ensuring a personalized experience and maintaining platform integrity.
 
 - **Commenting Functionality:** Logged-in users can engage in dynamic discussions through comments, fostering an interactive community.
+
+
 
 ## Technologies Used
 
