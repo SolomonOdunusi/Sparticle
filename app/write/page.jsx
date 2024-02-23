@@ -118,21 +118,21 @@ uploadTask.on('state_changed',
       </select>
         <div className={styles.editor}>
             <button className={styles.btn} onClick={() => setOpen(!open)}>
-                <Image className={styles.img} src='/plus.svg' height={16} width={16} />
+                <Image className={styles.img} alt='' src='/plus.svg' height={16} width={16} />
             </button>
             {open && (
                 <div className={styles.add}>
                     <input type="file" id='image' onChange={e=> setFile(e.target.files[0])} style={{display: 'none'}} />
                     <button className={styles.addbtn}>
                         <label htmlFor="image">
-                            <Image src='/image.svg' height={16} width={16} />
+                            <Image src='/image.svg' alt='' height={16} width={16} />
                         </label>
                     </button>
                     <button className={styles.addbtn}>
-                        <Image src='/video.svg' height={16} width={16} />
+                        <Image src='/video.svg' alt='' height={16} width={16} />
                     </button>
                     <button className={styles.addbtn}>
-                        <Image src='/upload.svg' height={16} width={16} />
+                        <Image src='/upload.svg' alt='' height={16} width={16} />
                     </button>
                 </div>
             )}

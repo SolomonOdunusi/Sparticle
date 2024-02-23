@@ -8,7 +8,7 @@ import MenuCategory from '../MenuCat/MenuCategory'
 function Menu() {
   return (
     <div className={styles.container}>
-      <h2 className={styles.subtitle}>What's Hot</h2>
+      <h2 className={styles.subtitle}>What&apos;s Hot</h2>
       <h1 className={styles.title}>Popular Posts</h1>
       <MenuPost withImage={true}/>
 
@@ -20,7 +20,7 @@ function Menu() {
 
       {/* Editor's Pick */}
       <h2 className={styles.subtitle}>Editor-Approved Must-Reads</h2>
-      <h1 className={styles.title}>Editors's Pick</h1>
+      <h1 className={styles.title}>Editors&apos;s Pick</h1>
       <div className={styles.items}>
         <Link className={styles.item} href="/">
           <div className={styles.textContainer}>

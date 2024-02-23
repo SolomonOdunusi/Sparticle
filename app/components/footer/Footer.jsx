@@ -37,10 +37,10 @@ function Footer() {
         </div>
         <div className={styles.list}>
           <span className={styles.listLinks}>Media</span>
-          <Link href='/' >Solomon's Github</Link>
-          <Link href='/' >Paulina's Github</Link>
-          <Link href='/' >Solomon's LinkedIn</Link>
-          <Link href='/' >Paulina's LinkedIn</Link>
+          <Link href='/' >Solomon&apos;s Github</Link>
+          <Link href='/' >Paulina&apos;s Github</Link>
+          <Link href='/' >Solomon&apos;s LinkedIn</Link>
+          <Link href='/' >Paulina&apos;s LinkedIn</Link>
         </div>
       </div>
     </div>

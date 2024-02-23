@@ -11,9 +11,9 @@ function Theme() {
 
   return (
     <div className={styles.container} onClick={toggle} style={theme === "dark" ? {backgroundColor: "white"} : {backgroundColor: "black"}}>
-      <Image src="/moon-solid.svg" width={14} height={14} />
+      <Image src="/moon-solid.svg" alt='' width={14} height={14} />
       <div className={styles.mode} style={theme === "dark" ? {right: 1, backgroundColor: "black"} : {left: 1, backgroundColor: "white"}}></div>
-      <Image src="/sun-solid.svg" width={14} height={14} />
+      <Image src="/sun-solid.svg" alt='' width={14} height={14} />
     </div>
   )
 }

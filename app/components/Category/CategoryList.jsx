@@ -23,7 +23,7 @@ const CategoryList = async ({searchParams}) => {
       <div className={styles.categories}>
           {data?.map((item) =>(
             <Link href={`/blog?cat=${item.curl}`} className={`${styles.category} ${styles.education}`} key={item._id}>
-            { item.img && (<Image src={item.img} className={styles.icon} height={32} width={32}/>)}
+            { item.img && (<Image src={item.img} alt='' className={styles.icon} height={32} width={32}/>)}
             {item.title}
           </Link>))}
       </div>

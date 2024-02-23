@@ -8,7 +8,7 @@ const MenuPost = ({withImage}) => {
     <div className={styles.items}>
     <Link className={styles.item} href="/">
       {withImage && <div className={styles.imgContainer}>
-        <Image src="/break 1.png" fill alt='img' className={styles.image}/>
+        <Image src="/break 1.png" fill alt='img' sizes="(max-width: 768px) 100vw, 50vw" className={styles.image}/>
       </div>}
       <div className={styles.textContainer}>
         <span className={`${styles.category} ${styles.education}`}>Education</span>
@@ -22,7 +22,7 @@ const MenuPost = ({withImage}) => {
 
     <Link className={styles.item} href="/">
     {withImage && <div className={styles.imgContainer}>
-        <Image src="/break 1.png" fill alt='img' className={styles.image}/>
+        <Image src="/break 1.png" fill alt='img' sizes="(max-width: 768px) 100vw, 50vw" className={styles.image}/>
       </div>}
       <div className={styles.textContainer}>
         <span className={`${styles.category} ${styles.science}`}>Science</span>
@@ -35,7 +35,7 @@ const MenuPost = ({withImage}) => {
     </Link>
     <Link className={styles.item} href="/">
     {withImage && <div className={styles.imgContainer}>
-        <Image src="/break 1.png" fill alt='img' className={styles.image}/>
+        <Image src="/break 1.png" fill alt='img' sizes="(max-width: 768px) 100vw, 50vw" className={styles.image}/>
       </div>}
       <div className={styles.textContainer}>
         <span className={`${styles.category} ${styles.engineering}`}>Engineering</span>
@@ -48,7 +48,7 @@ const MenuPost = ({withImage}) => {
     </Link>
     <Link className={styles.item} href="/">
     {withImage && <div className={styles.imgContainer}>
-        <Image src="/break 1.png" fill alt='img' className={styles.image}/>
+        <Image src="/break 1.png" fill alt='img' sizes="(max-width: 768px) 100vw, 50vw" className={styles.image}/>
       </div>}
       <div className={styles.textContainer}>
         <span className={`${styles.category} ${styles.medicine}`}>Medicine</span>
