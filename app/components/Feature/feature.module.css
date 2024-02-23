@@ -47,7 +47,16 @@
     width: max-content;
     font-weight: bold;
     cursor: pointer;
+    background-color: var(--textColor);
+    color: var(--softBg)
 }
+
+.button:hover {
+    background-color: var(--softTextColor);
+    
+}
+
+
 
 
 @media screen and (max-width: 1280px) {

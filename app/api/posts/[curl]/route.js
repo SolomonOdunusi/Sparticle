@@ -19,7 +19,7 @@ export const GET = async (req, {params}) => {
     } catch (error) {
         console.log(error)
         return new NextResponse(
-            JSON.stringify({ message: "Internal Server Error" }, { status: 500})
+            JSON.stringify({ message: "Internal Server Errorss" }, { status: 500})
         );
     }
 }

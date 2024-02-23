@@ -3,6 +3,7 @@ import styles from './feature.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 
+
 const getData = async () => {
   const res = await fetch('http://localhost:3000/api/categories', {
     cache: 'no-cache',

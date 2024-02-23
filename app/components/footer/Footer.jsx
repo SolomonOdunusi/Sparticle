@@ -30,10 +30,10 @@ function Footer() {
         </div>
         <div className={styles.list}>
           <span className={styles.listLinks}>Main Tags</span>
-          <Link href='/' >Education</Link>
-          <Link href='/' >Literature</Link>
-          <Link href='/' >Science</Link>
-          <Link href='/' >Medicine</Link>
+          <Link href="/blog?cat=education" >Education</Link>
+          <Link href="/blog?cat=literature" >Literature</Link>
+          <Link href="/blog?cat=science" >Science</Link>
+          <Link href="/blog?cat=medicine" >Medicine</Link>
         </div>
         <div className={styles.list}>
           <span className={styles.listLinks}>Media</span>

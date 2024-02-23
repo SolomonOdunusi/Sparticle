@@ -58,7 +58,7 @@ const Comments = ({postCurl}) => {
         )}
         <div className={styles.comm}>
         <div className={styles.comments}>
-            {isLoading ? "LOADING" : data?.map((item) => (
+            {isLoading ? "Loading..." : data?.map((item) => (
                 <div className={styles.comment} key={item._id}>
                 <div className={styles.user}>
                     {item?.user?.image && <Image src={item.user.image} height={50} width={50} alt="" className={styles.avatar} />}

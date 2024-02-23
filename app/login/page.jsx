@@ -22,8 +22,22 @@ const LoginPage = () => {
             </div>
         </div>
     }
-    if (status === 'authenticated') {
-        router.push("/")
+    // The load is too slow, so I'm using window.location.href to redirect the user to the home page
+    // if (status === 'authenticated' && router.pathname !== '/') {
+    //     router.push("/")
+    // }
+    if (status === 'authenticated' && router.pathname !== '/') {
+        console.log("Redirecting to /");
+        window.location.href = "/";
+        return (
+            <div className={styles.loader}>
+                <div className={styles.loading}>
+                    <div className={`${styles.inner} ${styles.innerone}`}></div>
+                    <div className={`${styles.inner} ${styles.innertwo}`}></div>
+                    <div className={`${styles.inner} ${styles.innerthree}`}></div>
+                </div>
+            </div>
+        )
     }
   return (
     <div className={styles.container}>
