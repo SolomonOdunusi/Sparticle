@@ -2,6 +2,8 @@ import React from 'react'
 import styles from './feature.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
+import prisma from '@/utils/connect'
+
 
 
 const getData = async () => {
