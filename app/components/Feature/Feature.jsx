@@ -2,21 +2,7 @@ import React from 'react'
 import styles from './feature.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
-import prisma from '@/utils/connect'
-
-
-
-const getData = async () => {
-  const res = await fetch('http://localhost:3000/api/categories', {
-    cache: 'no-cache',
-  })
-  if(!res.ok) {
-    throw new Error('Something went wrong')
-  }
-
-  return res.json()
-}
-
+import prisma from '@/utils/connect';
 
 async function Feature() {
   // Fetch the most viewed post
