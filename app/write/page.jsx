@@ -3,13 +3,14 @@
 import React, { useEffect, useState } from 'react'
 import styles from './writepg.module.css'
 import Image from 'next/image'
-import ReactQuill from 'react-quill'
+import dynamic from 'next/dynamic'
 import "react-quill/dist/quill.bubble.css"
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { app } from '@/utils/firebase'
 
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 const storage = getStorage(app);
 
 const WritePage = () => {
@@ -123,7 +124,7 @@ const WritePage = () => {
             <button className={styles.btn} onClick={() => setOpen(!open)}>
                 <Image className={styles.img} alt='' src='/plus.svg' height={16} width={16} />
             </button>
-            {open && (
+            {typeof document !== 'undefined' && open && (
                 <div className={styles.add}>
                     <input type="file" id='image' onChange={e=> setFile(e.target.files[0])} style={{display: 'none'}} />
                     <button className={styles.addbtn}>
