@@ -6,6 +6,7 @@ import { getServerSession } from "next-auth"
 
 export const AuthOptions = {
     adapter: PrismaAdapter(prisma),
+    secret: process.env.NEXTAUTH_SECRET, // Set the secret here
     providers: [
       GoogleProvider({
         clientId: process.env.GOOGLE_ID,
