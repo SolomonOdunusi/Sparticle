@@ -4,7 +4,7 @@ import {SessionProvider} from 'next-auth/react'
 
 const AuthProvider = ({children}) => {
   return (
-    <SessionProvider>{children}</SessionProvider>
+    <SessionProvider basePath='/util/auth' >{children}</SessionProvider>
   )
 }
 
