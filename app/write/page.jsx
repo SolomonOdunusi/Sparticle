@@ -26,43 +26,46 @@ const WritePage = () => {
     const [catCurl, setCatCurl] = useState("education");
 
     useEffect(() => {
-        const uploadFile = async () => {
-            const name = new Date().getTime() + file.name;
-            const storageRef = ref(storage, name);
-
-const uploadTask = uploadBytesResumable(storageRef, file);
-
-// Register three observers:
-// 1. 'state_changed' observer, called any time the state changes
-// 2. Error observer, called on failure
-// 3. Completion observer, called on successful completion
-uploadTask.on('state_changed', 
-  (snapshot) => {
-    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    console.log('Upload is ' + progress + '% done');
-    switch (snapshot.state) {
-      case 'paused':
-        console.log('Upload is paused');
-        break;
-      case 'running':
-        console.log('Upload is running');
-        break;
-    }
-  }, 
-  (error) => {
-    // Handle unsuccessful uploads
-  }, 
-  () => {
-    // Handle successful uploads on complete
-    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-        setMedia(downloadURL);
-    });
-  }
-);
-
+        if (typeof document !== 'undefined') {
+            const uploadFile = async () => {
+                const name = new Date().getTime() + file.name;
+                const storageRef = ref(storage, name);
+    
+                const uploadTask = uploadBytesResumable(storageRef, file);
+    
+                // Register three observers:
+                // 1. 'state_changed' observer, called any time the state changes
+                // 2. Error observer, called on failure
+                // 3. Completion observer, called on successful completion
+                uploadTask.on('state_changed', 
+                    (snapshot) => {
+                        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        console.log('Upload is ' + progress + '% done');
+                        switch (snapshot.state) {
+                            case 'paused':
+                                console.log('Upload is paused');
+                                break;
+                            case 'running':
+                                console.log('Upload is running');
+                                break;
+                        }
+                    }, 
+                    (error) => {
+                        // Handle unsuccessful uploads
+                    }, 
+                    () => {
+                        // Handle successful uploads on complete
+                        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                            setMedia(downloadURL);
+                        });
+                    }
+                );
+            }
+    
+            file && uploadFile();
         }
-        file && uploadFile()
-    }, [file])
+    }, [file]);
+    
 
     if (status === 'loading') {
         return <div className={styles.loader}>
